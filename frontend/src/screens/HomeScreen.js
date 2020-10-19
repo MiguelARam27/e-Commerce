@@ -7,7 +7,7 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 const HomeScreen = () => {
   const dispatch = useDispatch();
-
+  console.log('homescreen');
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
   useEffect(() => {

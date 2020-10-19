@@ -24,7 +24,6 @@ const Registerscreen = ({ location, history }) => {
   const redirect = location.search ? location.search.split('=')[1] : '/';
 
   useEffect(() => {
-    console.log(userInfo);
     if (userInfo) {
       history.push(redirect);
     }
@@ -84,7 +83,7 @@ const Registerscreen = ({ location, history }) => {
         </Form.Group>
 
         <Button type='submit' variant='primary'>
-          Sign In
+          Register
         </Button>
       </Form>
 
