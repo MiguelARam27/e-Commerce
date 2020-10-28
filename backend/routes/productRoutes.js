@@ -3,23 +3,18 @@ import {
   getProductById,
   getProducts,
   deleteProductByID,
+  updateProduct,
+  createProduct,
 } from '../controllers/productControllers.js';
 import { protect, isAdmin } from '../middleware/authMiddleware.js';
 const router = express.Router();
 
-//get all products
-//public acess
-//GET /api/products
-router.route('/').get(getProducts);
+router.route('/').get(getProducts).post(protect, isAdmin, createProduct);
 
-//get one single product by id
-//public acess
-//GET /api/products/:id
 router
   .route('/:id')
   .get(getProductById)
-  .delete(protect, isAdmin, deleteProductByID);
-
-router.route('/:id');
+  .delete(protect, isAdmin, deleteProductByID)
+  .put(protect, isAdmin, updateProduct);
 
 export default router;
