@@ -126,6 +126,7 @@ export const payOrder = (orderId, paymentResult) => async (
   }
 };
 export const deliverOrder = (order) => async (dispatch, getState) => {
+  console.log(order);
   try {
     dispatch({
       type: ORDER_DELIVER_REQUEST,
@@ -146,7 +147,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
       {},
       config
     );
-
+    console.log('here');
     dispatch({
       type: ORDER_DELIVER_SUCCESS,
       payload: data,

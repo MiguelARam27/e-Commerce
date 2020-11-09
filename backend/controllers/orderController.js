@@ -96,13 +96,13 @@ const getOrders = asyncHandler(async (req, res) => {
 });
 
 // @desc    Update order to say sent out
-// @route   GET /api/orders/:id/pay
+// @route   GET /api/orders/:id/deliver
 // @access  Private/Admin
 const updateOrderToDelivery = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
 
   if (order) {
-    order.isPaid = true;
+    order.isDelivered = true;
     order.deliveredAt = Date.now();
 
     const updatedOrder = await order.save();
